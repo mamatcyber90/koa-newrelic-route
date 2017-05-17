@@ -2,7 +2,7 @@
 
 Explicity set name a to each newrelic transaction according to the matching Koa route.
 
-currently supports koa1 and koa2.
+currently supports `koa1`
 
 current version is beta
 
