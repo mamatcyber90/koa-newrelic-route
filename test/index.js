@@ -18,11 +18,9 @@ describe('Test koa-newrelic-route', function () {
         const { handlerSpy } = this;
 
         function getHandler() {
-            return function* (...args) {
-                return yield* (function* () {
-                    handlerSpy(...args);
-                    yield Promise.resolve();
-                }());
+            return function (...args) {
+                handlerSpy(...args);
+                return Promise.resolve();
             }
         }
 
@@ -53,14 +51,14 @@ describe('Test koa-newrelic-route', function () {
 
         newrelicRoutes(routes, newrelic);
 
-        yield* routes.get['/api/v1/resource/1']();
-        yield* routes.get['/api/v1/resource/2']();
-        yield* routes.post['/api/v1/resource/1']();
-        yield* routes.post['/api/v1/resource/2']();
-        yield* routes.put['/api/v1/resource/1']();
-        yield* routes.put['/api/v1/resource/2']();
-        yield* routes.delete['/api/v1/resource/1'](1, 2, 3);
-        yield* routes.delete['/api/v1/resource/2'](1, 2, 3);
+        yield routes.get['/api/v1/resource/1']();
+        yield routes.get['/api/v1/resource/2']();
+        yield routes.post['/api/v1/resource/1']();
+        yield routes.post['/api/v1/resource/2']();
+        yield routes.put['/api/v1/resource/1']();
+        yield routes.put['/api/v1/resource/2']();
+        yield routes.delete['/api/v1/resource/1'](1, 2, 3);
+        yield routes.delete['/api/v1/resource/2'](1, 2, 3);
 
         setTransactionNameSpy.callCount.should.equal(8);
         setTransactionNameSpy.args[0][0].should.equal('get/api/v1/resource/1');
@@ -85,11 +83,9 @@ describe('Test koa-newrelic-route', function () {
         const { handlerSpy } = this;
 
         function getHandler() {
-            return function* (...args) {
-                return yield* (function* () {
-                    handlerSpy(...args);
-                    yield Promise.resolve();
-                }());
+            return function (...args) {
+                handlerSpy(...args);
+                return Promise.resolve();
             }
         }
 
@@ -103,7 +99,7 @@ describe('Test koa-newrelic-route', function () {
 
         newrelicRoutes(routes);
 
-        yield* routes.get['/api/v1/resource/1']();
+        yield routes.get['/api/v1/resource/1']();
 
         setTransactionNameSpy.callCount.should.equal(0);
     });

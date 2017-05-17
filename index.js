@@ -10,10 +10,10 @@ module.exports = (routes, newrelic) => {
         }
         Object.keys(routes[method]).forEach(path => {
             const handler = routes[method][path];
-            routes[method][path] = function* ( ...args) {
+            routes[method][path] = function(...args) {
                 const name = `${method}${path}`;
                 newrelic.setTransactionName(name);
-                return yield* handler.call(this, ...args);
+                return handler.call(this, ...args);
             };
         });
     });

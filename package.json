@@ -1,6 +1,6 @@
 {
   "name": "koa-newrelic-route",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Explicity set a name to each newrelic transaction according to the matching  Koa route",
   "main": "index.js",
   "scripts": {
