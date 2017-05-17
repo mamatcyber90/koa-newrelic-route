@@ -1,7 +1,7 @@
 {
   "name": "koa-newrelic-route",
   "version": "1.0.0",
-  "description": "Explicity set name a to each newrelic transaction according to the matching  Koa route",
+  "description": "Explicity set a name to each newrelic transaction according to the matching  Koa route",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/_mocha --require should --reporter spec -r co-mocha",
