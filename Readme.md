@@ -5,9 +5,11 @@ Explicity set name a to each newrelic transaction according to the matching Koa 
 ## Installation
 
 If you use generator functions as route handlers then install:
+
 ```npm i --save koa-newrelic-route@beta```
 
 If you async functions, or functions that return promises as route handlers then install:
+
 ```npm i --save koa-newrelic-route@promises```
 
 ## Example
