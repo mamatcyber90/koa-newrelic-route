@@ -4,7 +4,7 @@
   "description": "Explicity set name a to each newrelic transactions according to the matching  Koa route",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require should --reporter spec -r co-mocha",
+    "test": "./node_modules/.bin/_mocha --require should --reporter spec -r co-mocha",
     "test-cov": "node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require should -R spec -r co-mocha"
   },
   "dependencies": {
@@ -19,6 +19,11 @@
     "sinon": "^1.17.4",
     "supertest": "^1.2.0"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "pmatzavin",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pmatzavin/koa-newrelic-route.git"
+  },
+  "homepage": "https://github.com/pmatzavin/koa-newrelic-route.git"
 }
